@@ -1,0 +1,68 @@
+plugins {
+    alias(libs.plugins.androidApplication)
+}
+
+android {
+    namespace 'com.example.mqtt_demo'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.mqtt_demo"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+//    sourceSets{
+//        main{
+//            jniLibs.srcDirs = ['libs']
+//        }
+//    }
+//    splits {
+//        abi {
+//            enable true
+//            reset()
+//            include 'arm64-v8a', 'armeabi-v7a'
+//            universalApk true
+//        }
+//    }
+
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation files('lib\\org.eclipse.paho.android.service-1.1.1.jar')
+    implementation files('lib\\org.eclipse.paho.client.mqttv3-1.2.5.jar')
+//    implementation files('lib\\AMap_Location_V6.4.3_20240314.jar')
+    implementation files('lib\\android-support-v4.jar')
+//    implementation files('lib\\AMap_Location_V6.4.5_20240508.jar')
+//    implementation files('lib\\AMap_Search_V9.4.0_20220808.jar')
+//    implementation files('lib\\Amap_2DMap_V6.0.0_20191106.jar')
+//    implementation files('lib\\AMap3DMap_10.0.600_AMapLocation_6.4.3_20240314.jar')
+    implementation files('lib\\AMap3DMap_10.0.700_AMapSearch_9.7.2_AMapLocation_6.4.5_20240508.jar')
+//    implementation files('lib\\Volley.jar')
+
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    // 其他依赖项
+//    implementation 'com.amap.api:3dmap:38f21c3ed4eaa1cef2ad103292fb7741' // 高德地图SDK的依赖
+
+}
